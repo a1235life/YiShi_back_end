@@ -1,0 +1,30 @@
+增加食材做法
+---
+tags:
+  - 食材相关接口
+description:
+  增加某种食材做法
+consumes:
+  - application/json
+produces:
+  - text/html; charset=utf-8
+parameters:
+  - name: food_name
+    in: path
+    description: 增加食材的食材名
+    type: string
+    required: true
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/Recipe"
+responses:
+  200:
+    description: 添加成功
+    schema:
+      type: string
+  400:
+    description: 添加失败
+    schema:
+      type: string

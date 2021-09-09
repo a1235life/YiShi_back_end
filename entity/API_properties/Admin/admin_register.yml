@@ -1,0 +1,41 @@
+管理员注册验证
+---
+tags:
+  - 管理员相关接口
+description:
+  管理员注册
+produces:
+  - text/html; charset=utf-8
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: Admin管理员
+      required:
+        - id
+        - username
+        - password
+      properties:
+        id:
+          type: integer
+          description: 管理员id
+        username:
+          type: string
+          description: 管理员用户名
+        password:
+          type: string
+          description: 管理员密码
+responses:
+  200:
+    description: 创建成功，等待超级管理员审核
+    schema:
+      type: string
+  400:
+    description: 创建失败，该用户已存在
+    schema:
+      type: string
+  405:
+    description: 创建失败
+    schema:
+      type: string

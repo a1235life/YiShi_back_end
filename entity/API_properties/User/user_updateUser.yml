@@ -1,0 +1,50 @@
+更新用户
+---
+tags:
+  - 用户相关接口
+description:
+  更新一位用户的信息
+produces:
+  - text/html; charset=utf-8
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/User"
+responses:
+  200:
+    description: 更新成功
+    schema:
+      type: string
+  400:
+    description: 更新失败
+    schema:
+      type: string
+  404:
+    description: 该用户不存在
+    schema:
+      type: string
+definitions:
+  User:
+    description: 用户实体
+    id: 用户
+    type: object
+    required:
+      - id
+      - username
+      - password
+      - phone
+    properties:
+      id:
+        type: integer
+        description: 用户id
+      username:
+        type: string
+        description: 用户名
+      password:
+        type: string
+        description: 密码
+      phone:
+        type: string
+        description: 手机号

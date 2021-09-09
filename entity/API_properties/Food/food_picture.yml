@@ -1,0 +1,99 @@
+tensorflow模型识别食材
+---
+tags:
+  - 食材相关接口
+description:
+  获取识别结果的数据集，json格式
+consumes:
+  - text/plain
+produces:
+  - application/json
+parameters:
+  - name: base64
+    in: body
+    description: 图片转成的base64码
+    required: true
+responses:
+  200:
+    description: 识别结果数据集
+    schema:
+      $ref: "#/definitions/FoodApiResponse"
+definitions:
+  Recipe:
+    type: object
+    required:
+      - recipe_id
+    properties:
+      recipe_id:
+        type: integer
+        description: 食材做法id
+      recipe_name:
+        type: string
+        description: 菜名
+      picture_link:
+        type: string
+        description: 做法图片
+      url:
+        type: string
+        description: 做法链接
+  FoodApiResponse:
+    type: object
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: integer
+        description: 食材id
+      name:
+        type: string
+        description: 食材名称
+      introduction:
+        type: string
+        description: 食材介绍
+      nickname:
+        type: string
+        description: 食材别名
+      calorie:
+        type: string
+        description: 卡路里
+      classification:
+        type: string
+        description: 食材分属类别
+      dishes:
+        type: string
+        description: 食材做法
+      benefits:
+        type: string
+        description: 营养功效
+      suitable:
+        type: string
+        description: 适宜人群
+      unsuitable:
+        type: string
+        description: 禁忌人群
+      tag:
+        type: string
+        description: 食材标签
+      weight:
+        type: integer
+        description: 食材权重
+      choose:
+        type: string
+        description: 食材的挑选方法
+      storage:
+        type: string
+        description: 食材的存储方法
+      conflict:
+        type: string
+        description: 食材相克
+      mate:
+        type: string
+        description: 食物搭配
+      pic:
+        type: string
+        description: 食材图片
+      recipe:
+        type: array
+        items:
+          $ref: "#/definitions/Recipe"

@@ -1,0 +1,32 @@
+管理员登录验证
+---
+tags:
+  - 管理员相关接口
+description:
+  管理员登录
+produces:
+  - text/html; charset=utf-8
+parameters:
+  - name: username
+    in: path
+    description: 管理员账号
+    type: string
+    required: true
+  - name: password
+    in: path
+    description: 管理员密码
+    type: string
+    required: true
+responses:
+  200:
+    description: 登录成功
+    schema:
+      type: string
+  400:
+    description: 密码无效
+    schema:
+      type: string
+  404:
+    description: 账号无效
+    schema:
+      type: string

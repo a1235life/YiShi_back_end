@@ -1,0 +1,32 @@
+用户登录验证
+---
+tags:
+  - 用户相关接口
+description:
+  用户登录
+produces:
+  - text/html; charset=utf-8
+parameters:
+  - name: phone
+    in: path
+    description: 手机号
+    type: string
+    required: true
+  - name: password
+    in: path
+    description: 密码
+    type: string
+    required: true
+responses:
+  200:
+    description: 登录成功
+    schema:
+      type: string
+  400:
+    description: 密码错误
+    schema:
+      type: string
+  404:
+    description: 该手机号的用户不存在
+    schema:
+      type: string

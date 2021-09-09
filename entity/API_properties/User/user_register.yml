@@ -1,0 +1,27 @@
+用户注册
+---
+tags:
+  - 用户相关接口
+description:
+  注册一位用户
+produces:
+  - text/html; charset=utf-8
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/User"
+responses:
+  200:
+    description: 注册成功
+    schema:
+      type: string
+  400:
+    description: 该手机号已被注册
+    schema:
+      type: string
+  405:
+    description: 该用户名已存在
+    schema:
+      type: string

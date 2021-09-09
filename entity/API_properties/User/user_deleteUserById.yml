@@ -1,0 +1,30 @@
+根据id删除用户
+---
+tags:
+  - 用户相关接口
+description:
+  根据给定的id删除用户对象
+produces:
+  - text/html; charset=utf-8
+parameters:
+  - name: id
+    in: path
+    description: 用户id
+    type: integer
+    required: true
+responses:
+  200:
+    description: 删除成功
+    schema:
+      type: string
+      example: 删除成功!!
+  400:
+    description: 删除操作失败
+    schema:
+      type: string
+      example: 操作失败！！！
+  404:
+    description: 该用户不存在，删除失败
+    schema:
+      type: string
+      example: 该用户不存在，删除失败！！

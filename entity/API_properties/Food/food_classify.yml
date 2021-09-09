@@ -1,0 +1,125 @@
+获取食材的类别集
+---
+tags:
+  - 食材相关接口
+description:
+  获取食材类别集，json格式
+responses:
+  200:
+    description: 返回分类后的食材数据集
+    schema:
+      $ref: "#/definitions/FoodClassifyApiResponse"
+definitions:
+  Recipe:
+    type: object
+    required:
+      - recipe_id
+    properties:
+      recipe_id:
+        type: integer
+        description: 食材做法id
+      recipe_name:
+        type: string
+        description: 菜名
+      picture_link:
+        type: string
+        description: 做法图片
+      url:
+        type: string
+        description: 做法链接
+  FoodApiResponse:
+    type: object
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: integer
+        description: 食材id
+      name:
+        type: string
+        description: 食材名称
+      introduction:
+        type: string
+        description: 食材介绍
+      nickname:
+        type: string
+        description: 食材别名
+      calorie:
+        type: string
+        description: 卡路里
+      classification:
+        type: string
+        description: 食材分属类别
+      dishes:
+        type: string
+        description: 食材做法
+      benefits:
+        type: string
+        description: 营养功效
+      suitable:
+        type: string
+        description: 适宜人群
+      unsuitable:
+        type: string
+        description: 禁忌人群
+      tag:
+        type: string
+        description: 食材标签
+      weight:
+        type: integer
+        description: 食材权重
+      choose:
+        type: string
+        description: 食材的挑选方法
+      storage:
+        type: string
+        description: 食材的存储方法
+      conflict:
+        type: string
+        description: 食材相克
+      mate:
+        type: string
+        description: 食物搭配
+      pic:
+        type: string
+        description: 食材图片
+      recipe:
+        type: array
+        items:
+          $ref: "#/definitions/Recipe"
+  FoodClassifyApiResponse:
+    description: 食材分类后的数据集接口
+    type: object
+    required:
+      - vegetable_list
+      - fruit_list
+      - fungus_list
+      - cereal_list
+      - something_else_list
+    properties:
+      vegetable_list:
+        type: array
+        description: 蔬菜类
+        items:
+          $ref: "#/definitions/FoodApiResponse"
+      fruit_list:
+        type: array
+        description: 水果类
+        items:
+          $ref: "#/definitions/FoodApiResponse"
+      fungus_list:
+        type: array
+        description: 菌类
+        items:
+          $ref: "#/definitions/FoodApiResponse"
+      cereal_list:
+        type: array
+        description: 谷类
+        items:
+          $ref: "#/definitions/FoodApiResponse"
+      something_else_list:
+        type: array
+        description: 其它类
+        items:
+          $ref: "#/definitions/FoodApiResponse"
